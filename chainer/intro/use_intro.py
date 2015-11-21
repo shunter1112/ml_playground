@@ -6,7 +6,6 @@ import argparse
 from PIL import Image
 from PIL import ImageOps
 
-
 parser = argparse.ArgumentParser(
     description='A Neural Algorithm of Artistic Style')
 parser.add_argument('--img', '-i', default='',
@@ -27,6 +26,7 @@ img = Image.open(args.img)
 img = ImageOps.invert(img)
 img = ImageOps.grayscale(img)
 xd = np.asarray(img.resize((28,28))).reshape((1,784)).astype(np.float32) / 100.
+print xd
 yd = forward(xd).data[0]
 
 answer = [0,0.]

@@ -14,7 +14,6 @@ num_train = 60000
 num_test = 10000
 dim = 784
 
-
 def load_mnist(images, labels, num):
     data = np.zeros(num * dim, dtype=np.uint8).reshape((num, dim))
     target = np.zeros(num, dtype=np.uint8).reshape((num, ))
@@ -29,7 +28,6 @@ def load_mnist(images, labels, num):
                 data[i, j] = ord(f_images.read(1))
 
     return data, target
-
 
 def download_mnist_data():
     print('Downloading {:s}...'.format(train_images))
@@ -62,8 +60,8 @@ def download_mnist_data():
     print('Done')
     print('Convert completed')
 
-
 def load_mnist_data():
+    
     if not os.path.exists('mnist.pkl'):
         download_mnist_data()
     with open('mnist.pkl', 'rb') as mnist_pickle:
